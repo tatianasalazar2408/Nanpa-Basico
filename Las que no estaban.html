@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Las que no estaban — Nanpa Básico</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png.png">
+
+  <!-- Bootstrap y estilos -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link href="css/propia.css" rel="stylesheet" type="text/css">
+
+  <style>
+    :root {
+      --rosa-claro: #f7a6c7;
+      --rosa-oscuro: #d87ba3;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--rosa-oscuro) !important;
+    }
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: #fff !important;
+      font-weight: 600;
+    }
+    .navbar .nav-link:hover {
+      color: var(--rosa-claro) !important;
+    }
+
+    /* Títulos */
+    .texto {
+      color: var(--rosa-oscuro);
+      font-weight: 700;
+    }
+
+    /* Videos */
+    .video-card {
+      background: #fff;
+      border: 2px solid var(--rosa-claro);
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .video-title {
+      margin-top: 8px;
+      font-weight: 600;
+      color: var(--rosa-oscuro);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--rosa-oscuro);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid px-0">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="Index.html">NANPA BÁSICO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="rojo.html">GALERÍA</a></li>
+        <li class="nav-item"><a class="nav-link" href="Videos.html">VIDEOS</a></li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="albumsDropdown" data-toggle="dropdown">ÁLBUMES</a>
+          <div class="dropdown-menu" aria-labelledby="albumsDropdown">
+            <a class="dropdown-item" href="Las que no estaban.html">Las Que No Estaban</a>
+            <a class="dropdown-item" href="unicornio.html">Unicornio</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="99.9.html">99.9</a>
+            <a class="dropdown-item" href="HECHO M13RD4.html">Hecho M13RD4</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <section class="container py-5">
+    <h2 class="texto text-center mb-4">Álbum: Las que no estaban</h2>
+    <p class="text-center mb-5">Revisa aquí algunos de los videos oficiales del álbum <b>Las que no estaban</b> de Nanpa Básico.</p>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div class="video-card">
+          <iframe class="w-100" height="200" src="https://www.youtube.com/embed/FKbD4eQpqxM?si=FSRuVJX3JNkbIdnJ" allowfullscreen></iframe>
+          <div class="video-title">Pulso y Sudor</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="video-card">
+          <iframe class="w-100" height="200" src="https://www.youtube.com/embed/GFbYs72hcfc?si=heyalCD2nyN819lb" allowfullscreen></iframe>
+          <div class="video-title">Fresh</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="video-card">
+          <iframe class="w-100" height="200" src="https://www.youtube.com/embed/dQtLbMkWbj4?si=Y8nkbluLhL7N_8zd" allowfullscreen></iframe>
+          <div class="video-title">Apágala</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="video-card">
+          <iframe class="w-100" height="200" src="https://www.youtube.com/embed/mPlakCsUvxk?si=uBsI8O3vUTCeBS-q" allowfullscreen></iframe>
+          <div class="video-title">No Te Voy a Negar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center p-4 mt-5" id="contacto">
+    <p>&copy; 2025 Nanpa Básico. Todos los derechos reservados.</p>
+  </footer>
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+</body>
+</html>
