@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galería | Nanpa Básico</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png.png">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link href="css/propia.css" rel="stylesheet" type="text/css">
+  <style>
+    :root {
+      --rosa-claro: #f7a6c7;
+      --rosa-oscuro: #d87ba3;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2; /* Tonalidad gris suave */
+      color: #333;
+    }
+
+    /* Navbar (igual al index) */
+    .navbar {
+      background-color: var(--rosa-oscuro) !important;
+    }
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: #fff !important;
+      font-weight: 600;
+    }
+    .navbar .nav-link:hover {
+      color: var(--rosa-claro) !important;
+    }
+
+    /* Botones (igual al index) */
+    .btn-custom {
+      background-color: var(--rosa-oscuro);
+      border: none;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background-color: var(--rosa-claro);
+      color: #fff;
+    }
+
+    /* Títulos (igual al index) */
+    .texto {
+      color: var(--rosa-oscuro);
+      font-weight: 700;
+    }
+
+    /* Footer (igual al index) */
+    footer {
+      background: var(--rosa-oscuro);
+      color: #fff;
+    }
+
+    /* ===== GALERÍA ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 992px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    .thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      background: #fff;
+      cursor: zoom-in;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease;
+    }
+    .thumb:hover img { transform: scale(1.06); }
+
+    /* Visor (lightbox) */
+    .viewer-modal .modal-dialog {
+      max-width: 96vw;
+      margin: 0 auto;
+    }
+    .viewer-modal .modal-content {
+      background: rgba(0,0,0,0.75);
+      border: none;
+      border-radius: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .viewer-stage {
+      max-width: 90vw;
+      max-height: 85vh;
+      position: relative;
+    }
+    .viewer-stage img {
+      max-width: 100%;
+      max-height: 85vh;
+      display: block;
+      margin: 0 auto;
+      transition: transform .25s ease;
+      cursor: zoom-in;
+    }
+    .viewer-caption {
+      color: #fff;
+      text-align: center;
+      margin-top: 12px;
+      font-weight: 600;
+      letter-spacing: .3px;
+    }
+
+    /* Controles */
+    .viewer-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--rosa-oscuro);
+      color: #fff;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+      cursor: pointer;
+      transition: background .2s ease, transform .1s ease;
+      outline: none;
+    }
+    .viewer-btn:hover { background: var(--rosa-claro); }
+    .viewer-btn:active { transform: translateY(-50%) scale(.97); }
+    .viewer-prev { left: 24px; }
+    .viewer-next { right: 24px; }
+
+    .viewer-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.4);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .viewer-close:hover { background: rgba(255,255,255,.3); }
+
+    .zoomed { cursor: zoom-out !important; }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid px-0">
+
+  <!-- NAVBAR (igual al index) -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="Index.html">NANPA BÁSICO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="rojo.html">GALERÍA</a></li>
+        <li class="nav-item"><a class="nav-link" href="Videos.html">VIDEOS</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="albumsDropdown" data-toggle="dropdown">ÁLBUMES</a>
+          <div class="dropdown-menu" aria-labelledby="albumsDropdown">
+            <a class="dropdown-item" href="Las que no estaban.html">Las Que No Estaban</a>
+            <a class="dropdown-item" href="unicornio.html">Unicornio</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="99.9.html">99.9</a>
+            <a class="dropdown-item" href="HECHO M13RD4.html">Hecho M13RD4</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <section id="galeria" class="container py-5">
+    <h2 class="texto text-center mb-4">Galería</h2>
+
+    <div class="gallery-grid">
+      <!-- 12 imágenes -->
+      <a class="thumb" data-gallery="nanpa" data-index="0" data-title="Nanpa Básico 1">
+        <img src="Imagenes/JPEG/nanpa1_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="1" data-title="Nanpa Básico 2">
+        <img src="Imagenes/JPEG/nanpa2_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="2" data-title="Nanpa Básico 3">
+        <img src="Imagenes/JPEG/nanpa3_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="3" data-title="Nanpa Básico 4">
+        <img src="Imagenes/JPEG/nanpa4_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="4" data-title="Nanpa Básico 5">
+        <img src="Imagenes/JPEG/nanpa5_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="5" data-title="Nanpa Básico 6">
+        <img src="Imagenes/JPEG/nanpa6_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="6" data-title="Nanpa Básico 7">
+        <img src="Imagenes/JPEG/nanpa7_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="7" data-title="Nanpa Básico 8">
+        <img src="Imagenes/JPEG/nanpa8_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="8" data-title="Nanpa Básico 9">
+        <img src="Imagenes/JPEG/nanpa9_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="9" data-title="Nanpa Básico 10">
+        <img src="Imagenes/JPEG/nanpa10_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="10" data-title="Nanpa Básico 11">
+        <img src="Imagenes/JPEG/nanpa11_1.jpg" alt="Nanpa Básico">
+      </a>
+      <a class="thumb" data-gallery="nanpa" data-index="11" data-title="Nanpa Básico 12">
+        <img src="Imagenes/JPEG/nanpa12_1.jpg" alt="Nanpa Básico">
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER (igual al index) -->
+  <footer id="contacto" class="text-center p-4 mt-5">
+    <p>&copy; 2025 Nanpa Básico. Todos los derechos reservados.</p>
+  </footer>
+</div>
+
+<!-- Visor (Lightbox propio con Bootstrap Modal) -->
+<div class="modal fade viewer-modal" id="viewerModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button class="viewer-close" data-dismiss="modal" aria-label="Cerrar">&times;</button>
+
+      <button class="viewer-btn viewer-prev" aria-label="Anterior">&lsaquo;</button>
+      <div class="viewer-stage text-center">
+        <img id="viewerImage" src="" alt="">
+        <div id="viewerCaption" class="viewer-caption"></div>
+      </div>
+      <button class="viewer-btn viewer-next" aria-label="Siguiente">&rsaquo;</button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+<script>
+  (function() {
+    var items = [];
+    var current = 0;
+    var zoomed = false;
+
+    function collect() {
+      items = [];
+      $('[data-gallery="nanpa"]').each(function(idx) {
+        var $t = $(this);
+        items.push({
+          src: $t.find('img').attr('src'),
+          title: $t.data('title') || ''
+        });
+      });
+    }
+
+    function show(i) {
+      if (i < 0) i = items.length - 1;
+      if (i >= items.length) i = 0;
+      current = i;
+      $('#viewerImage').attr('src', items[i].src);
+      $('#viewerCaption').text(items[i].title);
+      $('#viewerImage').removeClass('zoomed').css('transform','');
+      zoomed = false;
+    }
+
+    function openAt(i) {
+      show(i);
+      $('#viewerModal').modal('show');
+    }
+
+    $(document).on('click', '[data-gallery="nanpa"]', function() {
+      var i = Number($(this).data('index')) || 0;
+      openAt(i);
+    });
+
+    $('.viewer-prev').on('click', function() { show(current - 1); });
+    $('.viewer-next').on('click', function() { show(current + 1); });
+
+    // Zoom con click en la imagen
+    $('#viewerImage').on('click', function() {
+      zoomed = !zoomed;
+      $(this).toggleClass('zoomed');
+      if (zoomed) {
+        $(this).css('transform', 'scale(1.6)');
+      } else {
+        $(this).css('transform', '');
+      }
+    });
+
+    // Teclado (← → Esc)
+    $(document).on('keydown', function(e) {
+      if (!$('#viewerModal').hasClass('show')) return;
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+      if (e.key === 'Escape') $('#viewerModal').modal('hide');
+    });
+
+    // Recolectar al cargar
+    $(function() { collect(); });
+  })();
+</script>
+</body>
+</html>
