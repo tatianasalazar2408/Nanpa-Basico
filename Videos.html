@@ -1,0 +1,311 @@
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nanpa Básico - Videos</title>
+
+    <!-- Favicon (uso el mismo que en tu Index/Galería) -->
+    <link rel="icon" type="image/png" href="favicon.png.png">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/propia.css" rel="stylesheet" type="text/css">
+
+    <style>
+      :root { --rosa-claro: #f7a6c7; --rosa-oscuro: #d87ba3; }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2; /* Tonalidad gris suave */
+        color: #333;
+      }
+
+      /* Navbar */
+      .navbar { background-color: var(--rosa-oscuro) !important; }
+      .navbar .nav-link, .navbar .navbar-brand { color: #fff !important; font-weight: 600; }
+      .navbar .nav-link:hover { color: var(--rosa-claro) !important; }
+
+      /* Botones */
+      .btn-custom { background-color: var(--rosa-oscuro); border: none; color: #fff; transition: 0.3s; }
+      .btn-custom:hover { background-color: var(--rosa-claro); color: #fff; }
+
+      /* Títulos */
+      .texto { color: var(--rosa-oscuro); font-weight: 700; }
+
+      /* Tarjetas de video (estética interactiva) */
+      .video-card {
+        background: #fff;
+        border: 2px solid var(--rosa-claro);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0,0,0,.08);
+        transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      }
+      .video-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(0,0,0,.12);
+        border-color: var(--rosa-oscuro);
+      }
+      .video-title {
+        margin: 0;
+        padding: .6rem .9rem .9rem;
+        font-weight: 600;
+        color: var(--rosa-oscuro);
+        text-align: center;
+      }
+      .video-actions { display:flex; gap:.5rem; justify-content:center; padding:0 .9rem 1rem; }
+
+      /* Filtros */
+      .filters { display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem; }
+      .filters .btn {
+        border:2px solid var(--rosa-oscuro);
+        background:#fff; color:var(--rosa-oscuro); font-weight:600;
+        border-radius:999px; padding:.35rem .9rem;
+      }
+      .filters .btn.active, .filters .btn:hover { background: var(--rosa-oscuro); color:#fff; }
+
+      /* Modal */
+      .modal-content { border-radius: 12px; }
+      .modal-header { border: 0; }
+    </style>
+  </head>
+
+  <body>
+ <!-- NAVBAR (igual al index) -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="Index.html">NANPA BÁSICO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="rojo.html">GALERÍA</a></li>
+        <li class="nav-item"><a class="nav-link" href="Videos.html">VIDEOS</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="albumsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ÁLBUMES</a>
+          <div class="dropdown-menu" aria-labelledby="albumsDropdown">
+            <a class="dropdown-item" href="Las que no estaban.html">Las Que No Estaban</a>
+            <a class="dropdown-item" href="unicornio.html">Unicornio</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="99.9.html">99.9</a>
+            <a class="dropdown-item" href="HECHO M13RD4.html">Hecho M13RD4</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
+      </ul>
+    </div>
+  </nav>
+    <div class="container-fluid px-0 py-4">
+      <!-- Navbar -->
+      <!-- Título -->
+      <h2 class="texto text-center my-4">Videos de Nanpa Básico</h2>
+
+      <!-- Filtros interactivos -->
+      <div class="filters mb-4">
+        <button class="btn active" data-filter="all" type="button">Todos</button>
+        <button class="btn" data-filter="album" type="button">Álbumes</button>
+        <button class="btn" data-filter="clasico" type="button">Clásicos</button>
+      </div>
+
+      <!-- Grid de videos (8 videos) -->
+      <div class="row">
+        <!-- 1 Álbum: Las que no estaban -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="album">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/mPlakCsUvxk?si=uBsI8O3vUTCeBS-q"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Las que no estaban</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/mPlakCsUvxk?si=uBsI8O3vUTCeBS-q">Ver grande</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 Álbum: Unicornio -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="album">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/FKbD4eQpqxM?si=FSRuVJX3JNkbIdnJ"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Unicornio</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/FKbD4eQpqxM?si=FSRuVJX3JNkbIdnJ">Ver grande</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Álbum: 99.9 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="album">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/GFbYs72hcfc?si=heyalCD2nyN819lb"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">99.9</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/GFbYs72hcfc?si=heyalCD2nyN819lb">Ver grande</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Álbum: Hecho M13RD4 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="album">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/xESGpFw1Prg?si=cfTpN2IBBDtcDez8"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Hecho M13RD4</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/xESGpFw1Prg?si=cfTpN2IBBDtcDez8">Ver grande</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 5 Clásico: CAMBIADO por tu link -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="clasico">
+            <div class="embed-responsive embed-responsive-16by9">
+              <!-- LINK CAMBIADO: dQtLbMkWbj4 -->
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/dQtLbMkWbj4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Entrevista Exclusiva</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/dQtLbMkWbj4">Ver grande</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Clásico -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="clasico">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/Q8iSRc8VHMA"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Desnudate con EVA</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/Q8iSRc8VHMA">Ver grande</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 Clásico -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="clasico">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/ErV551Jvt18"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Mis tatuajes</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/ErV551Jvt18">Ver grande</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 Clásico -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="video-card" data-category="clasico">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/aUATkOgyvEk"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Mis procesos</p>
+            <div class="video-actions">
+              <button class="btn btn-custom btn-sm open-modal" data-video="https://www.youtube.com/embed/aUATkOgyvEk">Ver grande</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- row -->
+    </div><!-- container-fluid -->
+
+    <!-- MODAL para ver en grande -->
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content p-2">
+          <div class="modal-header">
+            <h5 class="modal-title texto">Reproduciendo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe id="modalPlayer" class="embed-responsive-item" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS: carga jQuery, Popper y Bootstrap UNA VEZ (necesarios antes de tu script inline) -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap-4.4.1.js"></script>
+
+  <script>
+      // filtros
+      (function(){
+        var buttons = document.querySelectorAll('.filters .btn');
+        var cards = document.querySelectorAll('.video-card');
+        buttons.forEach(function(btn){
+          btn.addEventListener('click', function(){
+            buttons.forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            var cat = btn.getAttribute('data-filter');
+            cards.forEach(function(card){
+              var show = (cat === 'all') || (card.getAttribute('data-category') === cat);
+              card.style.display = show ? '' : 'none';
+            });
+          });
+        });
+      })();
+
+      // Modal de video (autoplay on open, stop on close)
+      (function(){
+        var modal = $('#videoModal');
+        var player = document.getElementById('modalPlayer');
+
+        $(document).on('click', '.open-modal', function(){
+          var base = this.getAttribute('data-video') || '';
+          var url = base.indexOf('?') > -1 ? base + '&autoplay=1' : base + '?autoplay=1';
+          player.src = url;
+          modal.modal('show');
+        });
+
+        modal.on('hidden.bs.modal', function(){ player.src = ''; });
+      })();
+    </script>
+
+  <!-- FOOTER -->
+  <footer class="text-center p-4 mt-5" id="contacto" style="background-color: var(--rosa-oscuro); color: #fff;">
+    <p>&copy; 2025 Nanpa Básico. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
