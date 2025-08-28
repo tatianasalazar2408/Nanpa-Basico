@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nanpa Básico</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png.png">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link href="css/propia.css" rel="stylesheet" type="text/css">
+  <style>
+    :root {
+      --rosa-claro: #f7a6c7;
+      --rosa-oscuro: #d87ba3;
+    }
+
+ body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2; /* Tonalidad gris suave */
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--rosa-oscuro) !important;
+    }
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: #fff !important;
+      font-weight: 600;
+    }
+    .navbar .nav-link:hover {
+      color: var(--rosa-claro) !important;
+    }
+
+    /* Botones */
+    .btn-custom {
+      background-color: var(--rosa-oscuro);
+      border: none;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background-color: var(--rosa-claro);
+      color: #fff;
+    }
+
+    /* Jumbotron */
+    .jumbotron {
+      background: linear-gradient(rgba(216, 123, 163, 0.6), rgba(247, 166, 199, 0.6)), url('Imagenes/JPEG/nanpa1_1.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 6rem 2rem;
+      border-radius: 0;
+    }
+
+    /* Títulos */
+    .texto {
+      color: var(--rosa-oscuro);
+      font-weight: 700;
+    }
+
+    /* Videos */
+    .video-card {
+      background: #fff;
+      border: 2px solid var(--rosa-claro);
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .video-title {
+      margin-top: 8px;
+      font-weight: 600;
+      color: var(--rosa-oscuro);
+    }
+
+    /* Álbumes */
+    .album {
+      border-left: 5px solid var(--rosa-oscuro);
+      padding-left: 15px;
+      margin-bottom: 30px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--rosa-oscuro);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid px-0">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="Index.html">NANPA BÁSICO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="rojo.html">GALERÍA</a></li>
+        <li class="nav-item"><a class="nav-link" href="Videos.html">VIDEOS</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="albumsDropdown" data-toggle="dropdown">ÁLBUMES</a>
+          <div class="dropdown-menu" aria-labelledby="albumsDropdown">
+            <a class="dropdown-item" href="Las que no estaban.html">Las Que No Estaban</a>
+            <a class="dropdown-item" href="unicornio.html">Unicornio</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="99.9.html">99.9</a>
+            <a class="dropdown-item" href="HECHO M13RD4.html">Hecho M13RD4</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- JUMBOTRON -->
+  <header class="jumbotron text-center">
+    <h1 class="display-4">Nanpa Básico</h1>
+    <p class="lead">Francisco David Rosero Serna, conocido como Nanpa Básico, es una de las voces más poderosas del rap latino.</p>
+    <hr class="my-4 bg-light">
+    <button type="button" class="btn btn-custom btn-lg" data-toggle="modal" data-target="#conoceMasModal">
+      Conoce más
+    </button>
+  </header>
+
+  <!-- MODAL -->
+  <div class="modal fade" id="conoceMasModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content p-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Conoce más de Nanpa Básico</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Nanpa Básico es un rapero colombiano que combina poesía urbana con rap consciente. Su estilo mezcla lo íntimo y lo social, creando un vínculo único con sus seguidores.</p>
+          <p>Con letras sobre amor, calle, lucha y emociones, ha logrado consolidarse como una de las voces más influyentes del rap latinoamericano.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERÍA -->
+<section id="galeria" class="container py-5">
+  <h2 class="texto text-center mb-4">Galería</h2>
+
+  <div id="carouselNanpa" class="carousel slide" data-ride="carousel">
+    <!-- Indicadores -->
+    <ol class="carousel-indicators">
+      <li data-target="#carouselNanpa" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselNanpa" data-slide-to="1"></li>
+      <li data-target="#carouselNanpa" data-slide-to="2"></li>
+      <li data-target="#carouselNanpa" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Imágenes -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="Imagenes/JPEG/nanpa2_1.jpg" alt="Nanpa Básico 2">
+      </div>
+      <div class="carousel-item">
+	    <img class="d-block w-100" src="Imagenes/JPEG/nanpa3_1.jpg" alt="Nanpa Básico 3">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="Imagenes/JPEG/nanpa4_1.jpg" alt="Nanpa Básico 4">
+      </div>
+      <div class="carousel-item">
+		<img class="d-block w-100" src="Imagenes/JPEG/nanpa1_1.jpg" alt="Nanpa Básico 1">
+      </div>
+    </div>
+
+    <!-- Controles -->
+    <a class="carousel-control-prev" href="#carouselNanpa" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselNanpa" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Siguiente</span>
+    </a>
+  </div>
+</section>
+
+  <!-- VIDEOS -->
+  <section id="videos" class="container py-5">
+    <h2 class="texto text-center mb-4">Videos</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-3"><div class="video-card"><iframe class="w-100" height="200" src="https://www.youtube.com/embed/aUATkOgyvEk" allowfullscreen></iframe><div class="video-title">Intro</div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="video-card"><iframe class="w-100" height="200" src="https://www.youtube.com/embed/Q8iSRc8VHMA" allowfullscreen></iframe><div class="video-title">Desnúdate con Eva</div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="video-card"><iframe class="w-100" height="200" src="https://www.youtube.com/embed/ErV551Jvt18" allowfullscreen></iframe><div class="video-title">Mis tatuajes</div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="video-card"><iframe class="w-100" height="200" src="https://www.youtube.com/embed/aUATkOgyvEk" allowfullscreen></iframe><div class="video-title">Mis procesos</div></div></div>
+    </div>
+  </section>
+
+  <!-- ÁLBUMES -->
+<section id="albumes" class="container py-5">
+  <h2 class="texto text-center mb-4">Álbumes destacados</h2>
+  <div class="album"><h3 class="texto">Las que no estaban</h3><p>Canciones íntimas que muestran el lado más humano de Nanpa.</p><iframe class="w-100" height="315" src="https://www.youtube.com/embed/mPlakCsUvxk?si=uBsI8O3vUTCeBS-q" allowfullscreen></iframe></div>
+  <div class="album"><h3 class="texto">Unicornio</h3><p>Un trabajo cargado de metáforas, crudeza y sensibilidad.</p><iframe class="w-100" height="315" src="https://www.youtube.com/embed/FKbD4eQpqxM?si=FSRuVJX3JNkbIdnJ" allowfullscreen></iframe></div>
+  <div class="album"><h3 class="texto">99.9</h3><p>Un álbum conceptual con sonidos frescos e introspectivos.</p><iframe class="w-100" height="315" src="https://www.youtube.com/embed/GFbYs72hcfc?si=heyalCD2nyN819lb" allowfullscreen></iframe></div>
+  <div class="album"><h3 class="texto">Hecho M13RD4</h3><p>Un disco de desahogo, vulnerabilidad y emociones crudas.</p><iframe class="w-100" height="315" src="https://www.youtube.com/embed/xESGpFw1Prg?si=cfTpN2IBBDtcDez8" allowfullscreen></iframe></div>
+</section>
+	
+  <!-- CONTACTO -->
+  <section id="contacto" class="container py-5">
+    <h2 class="texto">Contacto</h2>
+    <form>
+      <div class="form-group"><label for="nombre">Nombre</label><input type="text" class="form-control" id="nombre" required></div>
+      <div class="form-group"><label for="email">Email</label><input type="email" class="form-control" id="email" required></div>
+      <div class="form-group"><label for="mensaje">Mensaje</label><textarea class="form-control" id="mensaje" rows="4" required></textarea></div>
+      <button type="submit" class="btn btn-custom">Enviar</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center p-4 mt-5">
+    <p>&copy; 2025 Nanpa Básico. Todos los derechos reservados.</p>
+  </footer>
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+</body>
+</html>
